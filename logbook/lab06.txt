@@ -1,0 +1,27 @@
+LAB 6 LOGBOOK - <Parag Rajeshkumar Sanghavi> - <E26B07F0685>
+SETUP: my working directory is lab06-os-and-filesystem
+T1 prediction: I think ls / will show about ??? items
+T1: /bin holds commands
+T1: /dev holds devices
+T1: / means root directory , ~ means home directory , . means current working directory
+T1: the OS groups files by function and purpose
+T2 prediction: ./deploy will execute because file has execute permission 
+T2 prediction: appending after u-w will fail  because owner does not have write permission 
+T2: -rw-r--r-- written in numbers is 644
+T2: ./deploy failed at first because it does not have execute permission
+T2: the new policy needed chmod +x 
+-rwxr-x---  1 paragrajeshkumarsanghavi  staff  36 16 Sep 10:04 deploy
+T3 prediction: ./nst-info will execute because it has execute permission
+T3 prediction: adding .py to the name will not affect execution if the file is already executable
+T3: python3 nst-info worked but ./nst-info failed because nst-info did not have execute permission
+T3: renaming the file to .py changed only the filename 
+T3: file extensions are actually used by programs and users
+T4: nst-info failed from /tmp because ~/nst/bin was not in PATH 
+T4: the full path worked because it directly specified the executable's location
+T4: PATH is searched from left to right and stops at the first matching executable
+T4: my fake ls took over because ~/nst/bin appeared before /bin in PATH
+T4: the PATH change vanished in a new terminal because it was only changed in the previous shell session
+EXIT 1: a file has -rw-r--r--. running ./file does fail with permission denied and the one command that fixes it is chmod +x file
+EXIT 2: python3 script works but ./script says permission denied. explained to a friend: python3 can read and run the script, but ./script needs execute permission
+EXIT 3: PATH worked yesterday, gone this morning, nobody touched the file. what happened: the PATH change was temporary and was lost when the terminal session ended
+EXIT 4: one prediction I got wrong today, and what I learned from it: I learned that file extensions do not determine Linux execute permission; permissions and the shebang matter
